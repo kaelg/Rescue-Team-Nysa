@@ -1,16 +1,12 @@
 package com.porebski.Rescue.Team.Nysa.repository;
 
 import com.porebski.Rescue.Team.Nysa.domain.Category;
-import com.porebski.Rescue.Team.Nysa.domain.Player;
-import org.springframework.data.jpa.repository.Modifying;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
-import java.time.LocalDateTime;
 import java.util.List;
 
 @Repository
@@ -32,8 +28,6 @@ public class CategoryRepository {
     }
 
 
-
-
 //    @Transactional
 //    public boolean deleteByTitle(String title) {
 //        this.entityManager.remove(entityManager.find(Category.class, title));
@@ -47,8 +41,16 @@ public class CategoryRepository {
         return (Category) singleResult;
     }
 
+
     public List<Category> findAll() {
         Query query = this.entityManager.createQuery("from Category");
         return query.getResultList();
     }
+
+//    public List<Player> getAllPlayersFromCategory(long id) {
+//        Query query = this.entityManager.createQuery("from Category where id=:id");
+//        query.setParameter("id", id);
+//        List<Player> listResult = query.getResultList();
+//        return  listResult;
+//    }
 }

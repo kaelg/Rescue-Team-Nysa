@@ -10,22 +10,22 @@ import java.util.Objects;
 
 
 @Entity
-    @Getter
-    @Setter
-    @NoArgsConstructor
-    @Table(name = "CATEGORY")
-    public class Category {
-        @Id
-        @GeneratedValue(strategy = GenerationType.SEQUENCE)
-        private Long id;
-        private String title;
+@Getter
+@Setter
+@NoArgsConstructor
+@Table(name = "CATEGORY")
+public class Category {
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private Long id;
+    private String title;
     //one to many
     @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
-        private List<Player> players;
+    private List<Player> players;
 
-        public Category(String title) {
-            this.title = title;
-        }
+    public Category(String title) {
+        this.title = title;
+    }
 
     @Override
     public boolean equals(Object o) {

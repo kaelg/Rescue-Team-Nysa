@@ -1,6 +1,5 @@
 package com.porebski.Rescue.Team.Nysa.RepositoryTests;
 
-import com.porebski.Rescue.Team.Nysa.domain.Category;
 import com.porebski.Rescue.Team.Nysa.domain.Player;
 import com.porebski.Rescue.Team.Nysa.repository.CategoryRepository;
 import com.porebski.Rescue.Team.Nysa.repository.PlayerRepository;
@@ -40,6 +39,12 @@ public class PlayerRepositoryTest {
     @Test
     void findByNumber() {
         Player playerFromRepo = playerRepository.findByNumber(42L);
+        assertEquals(playerFromRepo.getFirstName(), "Bartek");
+    }
+
+    @Test
+    void findByNumberAndCategoryID() {
+        Player playerFromRepo = playerRepository.findByNumberAndCategory(42L, 1L);
         assertEquals(playerFromRepo.getFirstName(), "Bartek");
     }
 
